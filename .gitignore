@@ -1,0 +1,54 @@
+# === Dossiers à ignorer ===
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+UserSettings/
+
+# === Fichiers Unity spécifiques à ignorer ===
+# Cache des scènes et données temporaires
+*.pidb
+*.suo
+*.userprefs
+*.booproj
+*.svd
+*.opendb
+*.VC.db
+*.pdb
+*.pdb.meta
+*.pidb.meta
+
+# Fichiers Visual Studio
+*.csproj
+*.unityproj
+*.sln
+*.sln*
+*.suo
+*.user
+*.userosscache
+*.userprefs
+
+# === Fichiers système inutiles ===
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# === Fichiers générés par Unity ===
+/ExportedObj/
+/Build/
+/Builds/
+/Library/
+/Temp/
+/Logs/
+/obj/
+
+# === Fichiers de cache Unity ===
+/Assets/Plugins/*/Android/libs/
+/Assets/Plugins/*/iOS/
+/Assets/Plugins/*/Android/libs/
+/Assets/StreamingAssets/*/meta
