@@ -1,0 +1,5 @@
+class Voiture:
+    pass
+
+v1 = Voiture()
+v2 = Voiture()

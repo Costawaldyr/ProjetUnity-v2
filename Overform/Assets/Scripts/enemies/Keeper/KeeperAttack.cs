@@ -10,5 +10,6 @@ public class KeeperAttack : MonoBehaviour
         {
             collision.GetComponent<PlayerController>().life--;
         }
+
     }
 }

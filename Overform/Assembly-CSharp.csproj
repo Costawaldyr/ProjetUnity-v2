@@ -68,25 +68,36 @@
     <Compile Include="Assets/Scripts/Menu/MainMenu.cs" />
     <Compile Include="Assets/Scripts/Traps/TrapBigDamage.cs" />
     <Compile Include="Assets/Scripts/enemies/Gizmo/GizmoRange.cs" />
+    <Compile Include="Assets/Scripts/BossMagic/LightningMagic.cs" />
     <Compile Include="Assets/Scripts/Global/LoadGame.cs" />
     <Compile Include="Assets/Scripts/Player/Coin.cs" />
+    <Compile Include="Assets/Scripts/Player/Rogue/Life1.cs" />
+    <Compile Include="Assets/Scripts/Player/Player1/Life.cs" />
     <Compile Include="Assets/Scripts/enemies/Dragon/Dragon1/DragonRange.cs" />
+    <Compile Include="Assets/Scripts/enemies/Vampire/VampireControler.cs" />
+    <Compile Include="Assets/Scripts/Player/Rogue/RogueController.cs" />
     <Compile Include="Assets/Scripts/enemies/Dragon/Dragon1/DragonAttack.cs" />
     <Compile Include="Assets/Scripts/Traps/Spikes/Spikes.cs" />
     <Compile Include="Assets/Scripts/enemies/Keeper/KeeperControler.cs" />
     <Compile Include="Assets/Scripts/enemies/ghost/GhostControler.cs" />
     <Compile Include="Assets/Scripts/enemies/Dragon/Dragon1/DragonControler.cs" />
     <Compile Include="Assets/Scripts/enemies/Keeper/KeeperRange.cs" />
-    <Compile Include="Assets/Scripts/Player/Life.cs" />
+    <Compile Include="Assets/Scripts/Player/CameraFollow.cs" />
+    <Compile Include="Assets/Prefabs/Prefabs/PrefabWeapon.cs" />
+    <Compile Include="Assets/Scripts/BossMagic/BladeMagic.cs" />
+    <Compile Include="Assets/Prefabs/Prefabs/Bullet.cs" />
     <Compile Include="Assets/PlayerPrefsEditor/PlayerPrefsUtility.cs" />
     <Compile Include="Assets/Scripts/enemies/Gizmo/GizmoAttack.cs" />
-    <Compile Include="Assets/Scripts/Player/PlayerController.cs" />
     <Compile Include="Assets/Scripts/enemies/Keeper/KeeperAttack.cs" />
-    <Compile Include="Assets/Scripts/Player/PlayerAttack.cs" />
+    <Compile Include="Assets/Scripts/Player/Player1/PlayerAttack.cs" />
     <Compile Include="Assets/Scripts/Global/GameOver.cs" />
+    <Compile Include="Assets/Scripts/BossMagic/FireMagic.cs" />
     <Compile Include="Assets/Scripts/Traps/TrapDamage.cs" />
+    <Compile Include="Assets/Scripts/enemies/Vampire/AttackVampire.cs" />
     <Compile Include="Assets/Scripts/enemies/Dragon/Dragon1/DragonKitten.cs" />
+    <Compile Include="Assets/Scripts/Player/Player1/PlayerController.cs" />
     <Compile Include="Assets/Scripts/enemies/Gizmo/GizmoControler.cs" />
+    <Compile Include="Assets/Scripts/Player/Canvasl_Life/Life_Bar.cs" />
     <Compile Include="Assets/PlayerPrefsEditor/SimpleEncryption.cs" />
     <Compile Include="Assets/Scripts/enemies/Gizmo/GizmoKitten.cs" />
   </ItemGroup>
@@ -94,15 +105,21 @@
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile-2-Pass.shader" />
+    <None Include="Assets/Sprites/mountain-platformer-pixel-art-tileset/readme.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
+    <None Include="Assets/Sprites/10-magic-effects-pixel-art-pack/readme.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
+    <None Include="Assets/Sprites/pixel-art-forest-platformer-tileset/License.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets/Sprites/fantasy-platformer-game-ui/License.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/SDFFunctions.hlsl" />
+    <None Include="Assets/Sprites/10-magic-effects-pixel-art-pack/License.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
+    <None Include="Assets/Sprites/fantasy-platformer-game-ui/readme.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
@@ -110,6 +127,8 @@
     <None Include="Assets/PlayerPrefsEditor/README.txt" />
     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets/Sprites/pixel-art-forest-platformer-tileset/readme.txt" />
+    <None Include="Assets/Sprites/mountain-platformer-pixel-art-tileset/License.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
     <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
@@ -590,7 +609,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library/PackageCache/com.unity.visualscripting@1b53f46e931b/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <HintPath>Library/PackageCache/com.unity.visualscripting@7dcdc439b230/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil">
