@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(moveX * speed, rb.linearVelocity.y); 
 
-        if (moveX > 0) // lado direito
+        if (moveX > 0) 
         {
             transform.eulerAngles = new Vector3(0f, 0f, 0f);
             anim.SetBool("IsRun", true);
@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
             groundCheckOffsetLeft.x = - Mathf.Abs(groundCheckOffsetLeft.x);
             groundCheckOffsetRight.x = Mathf.Abs(groundCheckOffsetRight.x);
         }
-        else if (moveX < 0) // Se o player estiver olhando para o lado esquerdo
+        else if (moveX < 0) 
         {
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
             anim.SetBool("IsRun", true);
@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour
             groundCheckOffsetLeft.x = Mathf.Abs(groundCheckOffsetLeft.x);
             groundCheckOffsetRight.x = - Mathf.Abs(groundCheckOffsetRight.x);
         }
-        else // Se o player não estiver se movendo
+        else 
         {
             anim.SetBool("IsRun", false);
         }
