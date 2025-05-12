@@ -4,9 +4,13 @@ public class Spikes : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerController>().life=0;
+            PlayerController player = collision.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.TakeDamage(100);
+            }
         }
     }
 }

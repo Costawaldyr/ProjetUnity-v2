@@ -18,8 +18,6 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public int addJump;
     public float jumpForce;
-    public int life;
-    public int coin;
 
     [Header("Ground Check")]
     public LayerMask groundLayer; // camada do chão
@@ -33,15 +31,31 @@ public class PlayerController : MonoBehaviour
     public bool isPause;
 
     [Header("UI Components")]
-    public TextMeshProUGUI textLife;
     public TextMeshProUGUI textCoin;
+    public Life_Bar lifeBar;
+
+
+
+    [Header("Player Stats")]
+    public int maxLife = 100; 
+    public int life;
+    public int coin;
 
     [Header("Game Objects")]
     public GameObject gameOver;
     public GameObject pause;
 
+
     [Header("Level")]
     public string levelName;
+
+    [Header("Audio")]
+    private AudioSource audioSource;
+    public AudioClip jumpSound;
+    public AudioClip lifeSound;
+    public AudioClip deathSound;
+    public AudioClip impactSound;
+    public AudioClip swordSound;
 
     
     private void Awake() // is called before the start
@@ -53,28 +67,42 @@ public class PlayerController : MonoBehaviour
             levelName = PlayerPrefs.GetString("levelSaved", "Default");
             Debug.Log("Game loaded");
         }
+
+        if (life <= 0) life = maxLife;
     }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         colliderPlayer = GetComponent<CapsuleCollider2D>();
+        audioSource = GetComponent<AudioSource>();
         Time.timeScale = 1;
-    }
+        life = maxLife;
 
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
+
+        if (lifeBar != null)
+        {
+            lifeBar.UpdateLifeBar(life, maxLife);
+        }
+    }
     void Update()
     {
         moveX = Input.GetAxisRaw("Horizontal");
-        textLife.text = life.ToString();
         textCoin.text = coin.ToString();
+
+        if (lifeBar != null)
+        {
+            lifeBar.UpdateLifeBar(life,maxLife);
+        }
 
         if (life <= 0)
         {
-            this.enabled= false;
-            colliderPlayer.enabled = false;
-            rb.gravityScale = 0;
-            anim.Play("Die", -1);
-            gameOver.SetActive(true);
+            Die();
         }
 
         if (Input.GetButtonDown("Cancel"))
@@ -152,6 +180,13 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); 
         anim.SetBool("IsJump", true);
+        
+        if (jumpSound != null)
+        {
+            audioSource.PlayOneShot(jumpSound);
+        }
+        AudioManager.instance.SetBackgroundMusicVolume(0.2f);
+    
     }
 
     void Attack()
@@ -159,17 +194,60 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             anim.SetBool("IsAttack", true);
+            if (swordSound != null)
+            {
+                audioSource.PlayOneShot(swordSound);
+            }
+            AudioManager.instance.SetBackgroundMusicVolume(0.2f);
         }
         else
         {
             anim.SetBool("IsAttack", false);
         }
 
+
         /*if (Input.GetButtonDown("Fire1"))
         {
             anim.Play("Attack", -1);
         }*/
         
+    }
+
+    public void TakeDamage(int damage)
+    {
+        life -= damage;
+        life = Mathf.Clamp(life, 0, maxLife); // Empêche la vie de descendre en dessous de 0
+
+        if (lifeBar != null)
+        {
+            lifeBar.UpdateLifeBar(life, maxLife);
+        }
+
+        if (life <= 0 && !gameOver.activeSelf) 
+        {
+            Die();
+        }
+
+        if (impactSound != null)
+        {
+            audioSource.PlayOneShot(impactSound);
+        }
+        AudioManager.instance.SetBackgroundMusicVolume(0f);
+    
+    }
+
+    void Die()
+    {
+        this.enabled = false;
+        colliderPlayer.enabled = false;
+        rb.gravityScale = 0;
+        anim.Play("Die", -1);
+        gameOver.SetActive(true);
+        if (deathSound != null)
+        {
+            audioSource.PlayOneShot(deathSound);
+        }
+        AudioManager.instance.SetBackgroundMusicVolume(0.2f);
     }
 
     void PauseScreen()
@@ -223,23 +301,6 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawLine(groundCheckPosLeft, groundCheckPosLeft + Vector3.down * groundCheckDistance);
         Gizmos.DrawLine(groundCheckPosRight, groundCheckPosRight + Vector3.down * groundCheckDistance);
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            isGrounded = true;
-            anim.SetBool("IsJump", false);
-        }
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            isGrounded = false;
-        }
     }
 }
 

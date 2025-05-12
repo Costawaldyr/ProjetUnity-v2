@@ -59,7 +59,7 @@
     <UnityVersion>6000.0.39f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="/Users/ecole/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.1.0/Analyzers/Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="/Users/ecole/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.1.2/Analyzers/Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="/Users/ecole/UnityNewInstall/6000.0.39f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll" />
     <Analyzer Include="/Users/ecole/UnityNewInstall/6000.0.39f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="/Users/ecole/UnityNewInstall/6000.0.39f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
@@ -67,11 +67,11 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/Menu/MainMenu.cs" />
     <Compile Include="Assets/Scripts/Traps/TrapBigDamage.cs" />
+    <Compile Include="Assets/Scripts/son/VolumeManager.cs" />
     <Compile Include="Assets/Scripts/enemies/Gizmo/GizmoRange.cs" />
     <Compile Include="Assets/Scripts/BossMagic/LightningMagic.cs" />
     <Compile Include="Assets/Scripts/Global/LoadGame.cs" />
     <Compile Include="Assets/Scripts/Player/Coin.cs" />
-    <Compile Include="Assets/Scripts/Player/Rogue/Life1.cs" />
     <Compile Include="Assets/Scripts/Player/Player1/Life.cs" />
     <Compile Include="Assets/Scripts/enemies/Dragon/Dragon1/DragonRange.cs" />
     <Compile Include="Assets/Scripts/enemies/Vampire/VampireControler.cs" />
@@ -88,6 +88,8 @@
     <Compile Include="Assets/Prefabs/Prefabs/Bullet.cs" />
     <Compile Include="Assets/PlayerPrefsEditor/PlayerPrefsUtility.cs" />
     <Compile Include="Assets/Scripts/enemies/Gizmo/GizmoAttack.cs" />
+    <Compile Include="Assets/Scripts/son/AudioManager.cs" />
+    <Compile Include="Assets/Scripts/Traps/WaterKiller.cs" />
     <Compile Include="Assets/Scripts/enemies/Keeper/KeeperAttack.cs" />
     <Compile Include="Assets/Scripts/Player/Player1/PlayerAttack.cs" />
     <Compile Include="Assets/Scripts/Global/GameOver.cs" />

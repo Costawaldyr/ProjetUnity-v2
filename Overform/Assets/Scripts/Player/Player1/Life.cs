@@ -9,7 +9,7 @@ public class Life : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            collision.GetComponent<PlayerController>().life++;
+            collision.GetComponent<PlayerController>().life +=10;
             Destroy(this.gameObject);
         }
         

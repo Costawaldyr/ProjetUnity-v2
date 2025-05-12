@@ -6,7 +6,11 @@ public class TrapBigDamage : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerController>().life=0;
+            PlayerController player = collision.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.TakeDamage(100);
+            }
         }
     }
 }

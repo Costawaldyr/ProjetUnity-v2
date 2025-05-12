@@ -18,7 +18,7 @@ public class RogueController : MonoBehaviour
     public int addJump;
     public float jumpForce;
     public float highJumpForce;
-    private Life1 life;
+
 
 
     [Header("Jump Settings")]
@@ -41,7 +41,6 @@ public class RogueController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         colliderPlayer = GetComponent<CapsuleCollider2D>();
-        life= GetComponent<Life1>();
     }
 
     void Update()
@@ -112,11 +111,6 @@ public class RogueController : MonoBehaviour
         if (Time.time - jumpTimer > doublePressTime) 
         {
             jumpCount = 0;
-        }
-
-        if (life.current_life <= 0)
-        {
-            Die();
         }
 
 
